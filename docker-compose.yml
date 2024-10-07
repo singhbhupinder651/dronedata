@@ -1,0 +1,36 @@
+version: '3.3'
+
+services:
+
+ db:
+    container_name: drone_container
+    image: postgres:15 
+    environment:
+      POSTGRES_DB: drone_db
+      POSTGRES_USER: crimson
+      POSTGRES_PASSWORD: Cr1ms0n
+      POSTGRES_EXTENSIONS: "postgis"
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "5439:5432"
+    volumes:
+      -
+        type: bind
+        source: /home/deepdarshak/dronedb/database
+        target: /var/lib/postgresql/data
+    networks:
+      - default1    
+ pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.crimson
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5053:80"
+    networks:
+      - default1  
+      
+
+networks:
+ default1:

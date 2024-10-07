@@ -1,7 +1,7 @@
 services:
 
  db:
-    container_name: drone_container
+    container_name: postgress_container_dronedata
     image: postgres:15 
     environment:
       POSTGRES_DB: drone_db
@@ -19,7 +19,7 @@ services:
     networks:
       - default1    
  pgadmin:
-    container_name: pgadmin4_container
+    container_name: pgadmin4_container_dronedata
     image: dpage/pgadmin4:latest
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.crimson

@@ -10,7 +10,7 @@ services:
       POSTGRES_EXTENSIONS: "postgis"
       PGDATA: /var/lib/postgresql/data/pgdata
     ports:
-      - "5439:5432"
+      - "5439:5439"
     volumes:
       -
         type: bind
